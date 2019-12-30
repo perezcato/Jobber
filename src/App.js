@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {connect} from "react-redux";
 
-function App() {
+import {HomeComponent} from "./components/header";
+import JobSearch from "./components/JobSearch";
+import {JobList} from "./components/JobListing";
+import {JobItem} from "./components/JobItem";
+
+function App({jobs,requestState}) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-300 h-screen overflow-scroll">
+      <HomeComponent/>
+      <div className="px-64 border-t-2 border-gray-400 overflow-scroll">
+        <JobSearch/>
+        <JobList>
+            {jobs.map((job) => job.data.map(data => <JobItem data={data} key={data.id} />))}
+        </JobList>
+      </div>
     </div>
   );
 }
+const mapStateToProps = (state) => {
+    return {
+        jobs: state.jobs,
+        requestState: state.jobRequest
+    }
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
