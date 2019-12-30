@@ -30,8 +30,6 @@ const JobSearch = ({ submit }) => {
       formData.push("full_time=true");
     }
     submit(formData);
-    setLocation("");
-    setJobDescription("");
   };
 
   return (
@@ -44,7 +42,7 @@ const JobSearch = ({ submit }) => {
           <input
             className="block bg-white border border-blue-700
             focus:outline-none
-              mt-1  w-full text-xs py-2 px-2"
+             mt-1  w-full text-xs py-2 px-2"
             id="location"
             type="text"
             value={jobDescription}
@@ -52,7 +50,7 @@ const JobSearch = ({ submit }) => {
             placeholder="filter by title, benefits, companies or expertise"
           />
         </div>
-        <div className="lg:mr-6 w-full block lg:w-2/6">
+        <div className="lg:mr-6 w-full block lg:w-2/6 mt-4 lg:mt-0">
           <label className="text-gray-900 text-xs font-bold" htmlFor="location">
             Location
           </label>
@@ -67,7 +65,7 @@ const JobSearch = ({ submit }) => {
             placeholder="filter by city, state, zip-code or country"
           />
         </div>
-        <div className="lg:mr-6 block w-full lg:w-1/6">
+        <div className="lg:mr-6 block w-full lg:w-1/6 mt-4 lg:mt-0">
           <input
             id="fto"
             defaultChecked={fto}
@@ -78,7 +76,7 @@ const JobSearch = ({ submit }) => {
             Full Time Only
           </label>
         </div>
-        <button className=" block w-full lg:w-1/6 px-5 py-2 bg-blue-600 text-gray-100 focus:outline-none">
+        <button className="mt-4 lg:mt-0 block w-full lg:w-1/6 px-5 py-2 bg-blue-600 text-gray-100 focus:outline-none">
           search
         </button>
       </form>

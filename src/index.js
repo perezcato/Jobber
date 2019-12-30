@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "./redux/reducer";
+import {requestJobs} from "./redux/actions";
 
 const store = createStore(
   rootReducer,
@@ -17,6 +18,8 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+
+store.dispatch(requestJobs(["page=0"]));
 
 ReactDOM.render(
   <Provider store={store}>
