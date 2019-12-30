@@ -10,15 +10,12 @@ import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "./redux/reducer";
 import {requestJobs} from "./redux/actions";
 
-const devTools = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : null
+//const devTools = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : null
 
 const store = createStore(
   rootReducer,
   { jobs: [], jobRequest: false},
-  compose(
-    applyMiddleware(thunk),
-    devTools
-  )
+    applyMiddleware(thunk)
 );
 
 store.dispatch(requestJobs(["page=0"]));
