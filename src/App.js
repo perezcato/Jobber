@@ -12,7 +12,7 @@ function App({jobs,requestState}) {
   return (
     <div className="bg-gray-300 h-screen overflow-scroll">
       <HomeComponent/>
-      <div className="px-64 border-t-2 border-gray-400 overflow-scroll">
+      <div className="lg:px-64 px-4 border-t-2 border-gray-400 overflow-scroll">
         <JobSearch/>
         <JobList>
             { requestState ? ( <div className="flex justify-center mt-3 mb-3">
