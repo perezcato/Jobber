@@ -4,7 +4,7 @@ export const JOB_END = "JOB_END";
 export const JOB_SUCCESS = "JOB_SUCCESS";
 export const JOB_FAILURE = "JOB_FAILURE";
 
-const BASE_URL = "https://jobs.github.com/positions.json";
+const BASE_URL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
 
 const jobStart = () => {
   return {
